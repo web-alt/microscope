@@ -164,12 +164,6 @@ export default function Page3() {
               ariaLabel="Move the car closer to or farther from the viewer"
             />
           </div>
-
-          <p className="p3-caption">
-            Drag the control to bring the car toward the viewer. As distance
-            falls, the same object spans a wider angle at the eye — it
-            simply <em>looks</em> bigger, with no instrument involved.
-          </p>
         </div>
       </div>
     </div>
