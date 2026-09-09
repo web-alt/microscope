@@ -1,0 +1,93 @@
+.h-track-wrap {
+  width: 100%;
+  user-select: none;
+  touch-action: none;
+}
+
+.h-track-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+}
+
+.h-track {
+  position: relative;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.h-track-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--hairline-strong);
+}
+
+.h-track-fill {
+  position: absolute;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.h-track-marker {
+  position: absolute;
+  top: -14px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.h-track-marker-tick {
+  width: 1px;
+  height: 8px;
+  background: var(--ink-3);
+  margin-bottom: 2px;
+}
+
+.h-track-marker-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.h-track-knob {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  margin-top: -11px;
+  border-radius: 50%;
+  background: var(--bg-1);
+  border: 2px solid var(--ray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.h-track-knob:active {
+  cursor: grabbing;
+}
+
+.h-track-knob-grip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}

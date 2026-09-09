@@ -1,0 +1,464 @@
+/* PAGE 10: Case 2 — Image Formed at Infinity (Normal Adjustment / Relaxed Eye) */
+
+.p10-scene {
+  width: 100%;
+  min-height: 100%;
+  padding: 36px 60px 110px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 14px;
+}
+
+.p10-header {
+  max-width: 920px;
+}
+
+.p10-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 1.2;
+  margin: 4px 0 0;
+  color: var(--ink-0);
+  letter-spacing: -0.005em;
+}
+
+/* Top Summary Bar */
+.p10-summary-bar {
+  padding: 12px 18px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+}
+
+.p10-summary-def {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.p10-summary-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.p10-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.p10-badge--amber {
+  color: var(--ray);
+  background: rgba(255, 180, 107, 0.12);
+  border: 1px solid rgba(255, 180, 107, 0.35);
+}
+
+.p10-badge--cyan {
+  color: var(--axis);
+  background: rgba(95, 210, 232, 0.1);
+  border: 1px solid rgba(95, 210, 232, 0.28);
+}
+
+.p10-badge--violet {
+  color: var(--violet);
+  background: rgba(155, 140, 255, 0.1);
+  border: 1px solid rgba(155, 140, 255, 0.28);
+}
+
+.p10-summary-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-1);
+  margin: 0;
+}
+
+.p10-summary-math-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 10px;
+}
+
+.p10-minibox {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.p10-minibox--accent {
+  border-color: rgba(255, 180, 107, 0.45);
+  background: rgba(255, 180, 107, 0.08);
+}
+
+.p10-minibox-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+}
+
+.p10-minibox-math {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-0);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.p10-minibox-math--focus {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--ray);
+}
+
+.p10-minibox-math--lg {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffd8a8;
+}
+
+/* Main Section Wrapper */
+.p10-case-wrapper {
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 180, 107, 0.35);
+  background: linear-gradient(180deg, rgba(22, 18, 14, 0.75), rgba(14, 16, 22, 0.75));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p10-case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.p10-case-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.p10-case-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  color: var(--ray);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 180, 107, 0.15);
+  border: 1px solid rgba(255, 180, 107, 0.3);
+}
+
+.p10-case-condition {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--axis);
+}
+
+.p10-case-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink-0);
+  margin: 0;
+}
+
+/* 2-Column Body: Diagram Left, Steps Right */
+.p10-case-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.p10-diagram-col {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 10px 14px 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--hairline);
+}
+
+.p10-diagram-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+}
+
+.p10-diag-val {
+  color: var(--ray);
+  font-weight: 600;
+}
+
+.p10-svg {
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.p10-mono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  fill: var(--ink-1);
+}
+
+.p10-mono--focus {
+  fill: var(--ray);
+  font-weight: 600;
+}
+
+.p10-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--ink-0);
+}
+
+.p10-angle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-style: italic;
+  fill: var(--ray);
+}
+
+.p10-dim-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--ray);
+}
+
+.p10-dim-text--axis {
+  fill: var(--axis);
+}
+
+/* Steps Column on Right */
+.p10-steps-col {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  justify-content: space-between;
+}
+
+.p10-step-card {
+  padding: 7px 11px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--hairline);
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.p10-step-card--highlight {
+  border-color: rgba(255, 180, 107, 0.45);
+  background: rgba(255, 180, 107, 0.05);
+}
+
+.p10-step-card-num {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: rgba(255, 180, 107, 0.2);
+  border: 1px solid var(--ray);
+  color: var(--ray);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.p10-step-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+}
+
+.p10-step-name {
+  font-size: 11px;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.p10-step-formula {
+  font-size: 13px;
+  color: var(--ink-0);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.p10-step-subformula {
+  font-size: 12.5px;
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.p10-step-subformula strong {
+  color: #ffd8a8;
+}
+
+.p10-step-note {
+  font-size: 10.5px;
+  color: var(--ink-2);
+  font-style: italic;
+}
+
+.p10-result-m-tag {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffd8a8;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.p10-tags-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.p10-code-pill {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(95, 210, 232, 0.1);
+  border: 1px solid rgba(95, 210, 232, 0.25);
+  color: var(--axis);
+}
+
+.p10-equivalence-box {
+  margin-top: 3px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(155, 140, 255, 0.1);
+  border: 1px solid rgba(155, 140, 255, 0.35);
+  color: #d2cbff;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* Enclosed Limitation Box */
+.p10-limit-box {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1.2px dashed rgba(255, 180, 107, 0.5);
+  background: linear-gradient(180deg, rgba(255, 180, 107, 0.1), rgba(255, 180, 107, 0.02));
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.p10-limit-header {
+  display: flex;
+  align-items: center;
+}
+
+.p10-limit-badge {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.07em;
+  color: var(--ray);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.p10-limit-text {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ink-1);
+  margin: 0;
+  font-style: italic;
+}
+
+/* The derivation now sits below the ray diagram, with one readable step at a time. */
+.p10-derivation .p10-step-formula,
+.p10-derivation .p10-step-subformula,
+.p10-derivation .p10-tags-row { justify-content: center; }
+.p10-derivation .p10-step-formula,
+.p10-derivation .p10-step-subformula { font-size: 21px; }
+.p10-derivation .p10-step-subformula { margin-top: 10px; color: var(--ink-1); }
+.p10-derivation .p10-step-note { display: block; margin-top: 8px; font-size: 13px; }
+.p10-derivation .p10-code-pill { font-size: 13px; padding: 4px 9px; }
+.p10-derivation .p10-equivalence-box { width: min(100%, 520px); margin: 12px auto 0; font-size: 16px; padding: 8px 12px; }
+.p10-derivation .p10-limit-box { width: min(100%, 560px); text-align: left; }
+.p10-derivation .p10-limit-text { font-size: 15px; }
+
+/* Fraction Helpers */
+.p10-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  padding: 0 3px;
+}
+
+.p10-frac-top {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  text-align: center;
+}
+
+.p10-frac-bottom {
+  padding-top: 1px;
+  text-align: center;
+}
+
+@media (max-width: 1080px) {
+  .p10-summary-bar {
+    grid-template-columns: 1fr;
+  }
+  .p10-case-body {
+    grid-template-columns: 1fr;
+  }
+  .p10-scene {
+    padding: 32px 20px 140px;
+  }
+}

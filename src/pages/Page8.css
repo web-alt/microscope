@@ -1,0 +1,417 @@
+/* PAGE 8: Ray Diagram & Working Principle of Simple Microscope */
+
+.p8-scene {
+  width: 100%;
+  min-height: 100%;
+  padding: 40px 60px 110px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 14px;
+}
+
+.p8-header {
+  max-width: 920px;
+}
+
+.p8-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 1.2;
+  margin: 4px 0 0;
+  color: var(--ink-0);
+  letter-spacing: -0.005em;
+}
+
+/* Image Properties Highlight Bar */
+.p8-props-bar {
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 180, 107, 0.35);
+  background: linear-gradient(90deg, rgba(32, 24, 14, 0.75), rgba(18, 26, 38, 0.65));
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.p8-props-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ray);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.p8-props-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.p8-prop-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hairline);
+  color: var(--ink-1);
+}
+
+.p8-prop-badge strong {
+  color: var(--ink-0);
+  font-weight: 600;
+}
+
+.p8-prop-sub {
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.p8-prop-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.p8-prop-badge--virtual {
+  border-color: rgba(95, 210, 232, 0.4);
+  background: rgba(95, 210, 232, 0.08);
+}
+.p8-prop-badge--virtual .p8-prop-dot {
+  background: var(--axis);
+  box-shadow: 0 0 6px var(--axis);
+}
+
+.p8-prop-badge--erect {
+  border-color: rgba(255, 180, 107, 0.4);
+  background: rgba(255, 180, 107, 0.08);
+}
+.p8-prop-badge--erect .p8-prop-dot {
+  background: var(--ray);
+  box-shadow: 0 0 6px var(--ray);
+}
+
+.p8-prop-badge--enlarged {
+  border-color: rgba(255, 180, 107, 0.6);
+  background: rgba(255, 180, 107, 0.12);
+}
+.p8-prop-badge--enlarged .p8-prop-dot {
+  background: #ffb46b;
+  box-shadow: 0 0 8px #ffb46b;
+}
+
+/* Two Ray Diagrams Side-by-Side */
+.p8-diagrams-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 14px;
+}
+
+.p8-diag-card {
+  padding: 12px 16px 14px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+}
+
+.p8-diag-card--red {
+  background: linear-gradient(180deg, rgba(255, 180, 107, 0.04), rgba(255, 180, 107, 0.015));
+  border-color: rgba(255, 180, 107, 0.25);
+}
+
+.p8-diag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p8-diag-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+}
+
+.p8-diag-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p8-diag-reset-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(255, 180, 107, 0.15);
+  border: 1px solid rgba(255, 180, 107, 0.4);
+  color: var(--ray);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-soft);
+}
+
+.p8-diag-reset-btn:hover {
+  background: rgba(255, 180, 107, 0.3);
+  color: #fff;
+}
+
+.p8-diag-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ray);
+  font-weight: 600;
+}
+
+.p8-diag-tag--red {
+  color: var(--ray);
+}
+
+.p8-svg {
+  width: 100%;
+  height: auto;
+  user-select: none;
+  touch-action: none;
+}
+
+.p8-svg-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--ink-1);
+}
+
+.p8-svg-label {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--ink-0);
+}
+
+.p8-svg-label--img {
+  fill: var(--axis);
+}
+
+.p8-svg-angle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  fill: var(--ray);
+}
+
+.p8-svg-dim {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  fill: var(--ray);
+}
+
+.p8-svg-dim--axis {
+  fill: var(--axis);
+}
+
+/* Controls Bar (Horizontal slider strictly between F and O) */
+.p8-controls {
+  padding: 10px 18px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.p8-controls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p8-controls-title {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+}
+
+.p8-controls-val {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ray);
+  font-weight: 600;
+}
+
+/* Bottom-Right Transition / Reveal Trigger */
+.p8-transition-trigger-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2px;
+}
+
+.p8-transition-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1.2px solid rgba(255, 180, 107, 0.45);
+  background: linear-gradient(180deg, rgba(255, 180, 107, 0.16), rgba(255, 180, 107, 0.05));
+  color: var(--ray);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s var(--ease-soft);
+}
+
+.p8-transition-btn:hover {
+  background: linear-gradient(180deg, rgba(255, 180, 107, 0.28), rgba(255, 180, 107, 0.1));
+  border-color: rgba(255, 180, 107, 0.75);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(255, 180, 107, 0.25);
+}
+
+.p8-transition-arrow {
+  transition: transform 0.3s var(--ease-optic);
+}
+
+/* Revealed Derivation Card */
+.p8-derivation-card {
+  padding: 20px 26px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(255, 180, 107, 0.4);
+  background: linear-gradient(180deg, rgba(24, 18, 12, 0.95), rgba(14, 12, 10, 0.95));
+  box-shadow: 0 20px 48px -15px rgba(0, 0, 0, 0.7), 0 0 24px -6px rgba(255, 180, 107, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.p8-deriv-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink-0);
+  margin: 4px 0 6px;
+}
+
+.p8-deriv-def {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 78ch;
+}
+
+.p8-deriv-steps-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+}
+
+.p8-deriv-box {
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.p8-deriv-box--result {
+  border-color: rgba(255, 180, 107, 0.5);
+  background: linear-gradient(180deg, rgba(255, 180, 107, 0.12), rgba(255, 180, 107, 0.03));
+}
+
+.p8-deriv-step-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  color: var(--ray);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.p8-math-eq {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--ink-1);
+}
+
+.p8-math-eq--highlight {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-0);
+}
+
+.p8-math-line {
+  font-size: 13.5px;
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.p8-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  padding: 0 4px;
+}
+
+.p8-frac-top {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  text-align: center;
+}
+
+.p8-frac-bottom {
+  padding-top: 2px;
+  text-align: center;
+}
+
+.p8-math-result {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffd8a8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+/* The derivation grows vertically, preserving every revealed line for review. */
+.p8-derivation { width: min(100%, 980px); }
+.p8-derivation .p8-math-eq,
+.p8-derivation .p8-math-line,
+.p8-derivation .p8-math-result { justify-content: center; }
+.p8-derivation .p8-math-eq,
+.p8-derivation .p8-math-line { font-size: 18px; flex-wrap: wrap; }
+.p8-derivation .p8-math-line + .p8-math-line { margin-top: 12px; }
+
+@media (max-width: 980px) {
+  .p8-diagrams-grid {
+    grid-template-columns: 1fr;
+  }
+  .p8-deriv-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .p8-scene {
+    padding: 36px 20px 140px;
+  }
+}

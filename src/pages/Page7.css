@@ -1,0 +1,295 @@
+.p7-scene {
+  width: 100%;
+  min-height: 100%;
+  padding: 44px 72px 90px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.p7-header {
+  max-width: 860px;
+  margin-bottom: 14px;
+}
+
+.p7-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 8px 0 0;
+  color: var(--ink-0);
+  letter-spacing: -0.005em;
+}
+
+/* Main Table Card */
+.p7-table-card {
+  padding: 16px 22px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, rgba(18, 26, 38, 0.65), rgba(9, 14, 21, 0.85));
+  box-shadow: 0 16px 40px -15px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p7-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 180, 107, 0.4) rgba(14, 21, 32, 0.6);
+}
+
+.p7-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.p7-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(14, 21, 32, 0.6);
+  border-radius: 3px;
+}
+
+.p7-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 180, 107, 0.35);
+  border-radius: 3px;
+}
+
+.p7-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 180, 107, 0.65);
+}
+
+.p7-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  font-family: var(--font-body);
+  text-align: left;
+}
+
+/* Header Row */
+.p7-thead-row {
+  border-bottom: 1px solid var(--hairline-strong);
+}
+
+.p7-th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ray);
+  padding: 6px 14px 10px;
+  white-space: nowrap;
+}
+
+.p7-th--case {
+  width: 14%;
+}
+
+.p7-th--obj {
+  width: 27%;
+}
+
+.p7-th--img {
+  width: 25%;
+}
+
+.p7-th--size {
+  width: 19%;
+}
+
+.p7-th--nature {
+  width: 15%;
+}
+
+/* Standard Data Rows */
+.p7-row {
+  transition: background 0.2s ease;
+}
+
+.p7-td {
+  padding: 9px 14px;
+  font-size: 13.5px;
+  color: var(--ink-1);
+  line-height: 1.4;
+  vertical-align: middle;
+  background: rgba(18, 26, 38, 0.45);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  transition: all 0.2s ease;
+}
+
+.p7-row:hover:not(.p7-row--final) .p7-td {
+  background: rgba(26, 38, 54, 0.6);
+  border-color: var(--hairline-strong);
+}
+
+/* Cell specific formatting */
+.p7-td:first-child {
+  border-left: 1px solid var(--hairline);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.p7-td:last-child {
+  border-right: 1px solid var(--hairline);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.p7-case-badge {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.p7-cell-content {
+  display: inline-block;
+}
+
+/* Mathematical sub script formatting */
+.p7-td sub {
+  font-size: 10.5px;
+  line-height: 0;
+  color: var(--axis);
+  font-weight: 600;
+  vertical-align: -0.25em;
+}
+
+/* Nature pills */
+.p7-nature-pill {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+/* =======================================================
+   CRITICAL REQUIREMENT: FINAL ROW EMPHASIS (CASE 6)
+   - highlighted surface
+   - clear border/outline
+   - slightly enlarged / scaled
+   - stable table layout
+   ======================================================= */
+.p7-row--final {
+  position: relative;
+  z-index: 2;
+}
+
+.p7-row--final .p7-td {
+  padding: 12px 14px;
+  color: var(--ink-0);
+  font-weight: 500;
+  background: linear-gradient(90deg, rgba(42, 30, 16, 0.96), rgba(28, 20, 12, 0.94));
+  border-top: 1.8px solid rgba(255, 180, 107, 0.8) !important;
+  border-bottom: 1.8px solid rgba(255, 180, 107, 0.8) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 20px -4px rgba(255, 180, 107, 0.25);
+}
+
+.p7-row--final .p7-td:first-child {
+  border-left: 1.8px solid rgba(255, 180, 107, 0.8) !important;
+}
+
+.p7-row--final .p7-td:last-child {
+  border-right: 1.8px solid rgba(255, 180, 107, 0.8) !important;
+}
+
+.p7-row--final .p7-case-badge {
+  color: var(--ray);
+  font-weight: 700;
+  font-size: 12.5px;
+}
+
+.p7-microscope-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: #ffd8a8;
+  background: rgba(255, 180, 107, 0.18);
+  border: 1px solid rgba(255, 180, 107, 0.5);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-top: 5px;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+.p7-row--final .p7-td--obj {
+  color: #fff;
+  font-weight: 600;
+}
+
+.p7-row--final .p7-td--obj sub {
+  color: var(--ray);
+}
+
+.p7-cell--enlarged {
+  color: var(--axis);
+  font-weight: 600;
+}
+
+.p7-nature-pill--virtual {
+  color: var(--ray);
+  font-weight: 700;
+  background: rgba(255, 180, 107, 0.14);
+  border: 1px solid rgba(255, 180, 107, 0.35);
+  border-radius: 6px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+/* Seminar Key Takeaway Callout */
+.p7-takeaway {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(255, 180, 107, 0.06);
+  border: 1px solid rgba(255, 180, 107, 0.22);
+}
+
+.p7-takeaway-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ray);
+  box-shadow: 0 0 8px var(--ray);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.p7-takeaway-text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-1);
+}
+
+.p7-takeaway-text strong {
+  color: var(--ray);
+  font-weight: 600;
+}
+
+.p7-takeaway-text em {
+  color: var(--ink-0);
+  font-style: italic;
+}
+
+@media (max-width: 980px) {
+  .p7-scene {
+    padding: 44px 20px 160px;
+  }
+  .p7-heading {
+    font-size: 24px;
+  }
+  .p7-td, .p7-th {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}

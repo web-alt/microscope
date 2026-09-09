@@ -1,0 +1,436 @@
+/* PAGE 9: Angular Magnification & Case 1 (Near Point) */
+
+.p9-scene {
+  width: 100%;
+  min-height: 100%;
+  padding: 36px 60px 110px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 14px;
+}
+
+.p9-header {
+  max-width: 920px;
+}
+
+.p9-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 1.2;
+  margin: 4px 0 0;
+  color: var(--ink-0);
+  letter-spacing: -0.005em;
+}
+
+/* Part 1: Top Summary Bar (Definition + General Formula Recap) */
+.p9-summary-bar {
+  padding: 12px 18px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+}
+
+.p9-summary-def {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.p9-summary-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p9-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.p9-badge--amber {
+  color: var(--ray);
+  background: rgba(255, 180, 107, 0.12);
+  border: 1px solid rgba(255, 180, 107, 0.35);
+}
+
+.p9-badge--cyan {
+  color: var(--axis);
+  background: rgba(95, 210, 232, 0.1);
+  border: 1px solid rgba(95, 210, 232, 0.28);
+}
+
+.p9-summary-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-1);
+  margin: 0;
+}
+
+.p9-summary-math-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 10px;
+}
+
+.p9-minibox {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.p9-minibox--accent {
+  border-color: rgba(255, 180, 107, 0.45);
+  background: rgba(255, 180, 107, 0.08);
+}
+
+.p9-minibox-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+}
+
+.p9-minibox-math {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-0);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.p9-minibox-math--lg {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffd8a8;
+}
+
+/* Part 2: Main Section (CASE 1: Image at Near Point) */
+.p9-case-wrapper {
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 180, 107, 0.35);
+  background: linear-gradient(180deg, rgba(22, 18, 14, 0.75), rgba(14, 16, 22, 0.75));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p9-case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.p9-case-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.p9-case-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  color: var(--ray);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 180, 107, 0.15);
+  border: 1px solid rgba(255, 180, 107, 0.3);
+}
+
+.p9-case-condition {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--axis);
+}
+
+.p9-case-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink-0);
+  margin: 0;
+}
+
+/* Case 1 Body: Left SVG Diagram + Right Derivation Steps */
+.p9-case-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.p9-diagram-col {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 10px 14px 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--hairline);
+}
+
+.p9-diagram-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+}
+
+.p9-diag-val {
+  color: var(--ray);
+  font-weight: 600;
+}
+
+.p9-svg {
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.p9-mono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  fill: var(--ink-1);
+}
+
+.p9-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--ink-0);
+}
+
+.p9-angle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-style: italic;
+  fill: var(--ray);
+}
+
+.p9-dim-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--ray);
+}
+
+.p9-dim-text--axis {
+  fill: var(--axis);
+}
+
+/* Steps Column on Right */
+.p9-steps-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.p9-step-card {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--hairline);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.p9-step-card-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 180, 107, 0.2);
+  border: 1px solid var(--ray);
+  color: var(--ray);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.p9-step-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-grow: 1;
+}
+
+.p9-step-name {
+  font-size: 11.5px;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.p9-step-formula {
+  font-size: 13.5px;
+  color: var(--ink-0);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.p9-step-subformula {
+  font-size: 13.5px;
+  color: var(--ink-0);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.p9-tags-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.p9-code-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(95, 210, 232, 0.1);
+  border: 1px solid rgba(95, 210, 232, 0.25);
+  color: var(--axis);
+}
+
+/* Fractions */
+.p9-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  padding: 0 3px;
+}
+
+.p9-frac-top {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  text-align: center;
+}
+
+.p9-frac-bottom {
+  padding-top: 1px;
+  text-align: center;
+}
+
+/* Final Emphasized Result Box */
+.p9-result-box {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 180, 107, 0.6);
+  background: linear-gradient(180deg, rgba(255, 180, 107, 0.15), rgba(255, 180, 107, 0.04));
+  box-shadow: 0 8px 24px -6px rgba(255, 180, 107, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.p9-result-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p9-result-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ray);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.p9-result-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.p9-result-equation {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffd8a8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.p9-result-equation sub,
+.p9-sub-max {
+  font-size: 0.52em !important;
+  vertical-align: baseline !important;
+  position: relative;
+  top: 0.3em;
+  color: var(--ray);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  margin-left: 2px;
+}
+
+.p9-result-desc {
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+/* The derivation now occupies a dedicated teaching area beneath the diagram. */
+.p9-derivation .p9-step-formula,
+.p9-derivation .p9-step-subformula,
+.p9-derivation .p9-tags-row { justify-content: center; }
+.p9-derivation .p9-step-formula,
+.p9-derivation .p9-step-subformula { font-size: 21px; }
+.p9-derivation .p9-step-subformula { margin-top: 10px; color: var(--ink-1); }
+.p9-derivation .p9-tags-row { margin-top: 4px; }
+.p9-derivation .p9-code-pill { font-size: 13px; padding: 4px 9px; }
+.p9-derivation .p9-result-box { width: min(100%, 560px); text-align: left; }
+.p9-derivation .p9-result-equation { justify-content: center; font-size: 28px; }
+
+@media (max-width: 1080px) {
+  .p9-summary-bar {
+    grid-template-columns: 1fr;
+  }
+  .p9-case-body {
+    grid-template-columns: 1fr;
+  }
+  .p9-scene {
+    padding: 32px 20px 140px;
+  }
+}

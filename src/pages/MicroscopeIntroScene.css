@@ -1,0 +1,211 @@
+.intro-scene {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 76px 64px 120px;
+}
+
+.intro-scene-header {
+  text-align: center;
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.intro-title-stack {
+  position: relative;
+  margin-top: 14px;
+  min-height: 52px;
+  display: grid;
+  grid-template-areas: "title";
+  justify-items: center;
+  align-items: center;
+}
+
+.intro-title {
+  grid-area: title;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--ink-0);
+  margin: 0;
+}
+
+.intro-title em {
+  font-style: italic;
+  color: var(--ray);
+}
+
+.intro-title-sub {
+  display: block;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  margin-bottom: 10px;
+}
+
+.intro-def {
+  margin-top: 22px;
+  color: var(--ink-1);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-def p {
+  margin: 0 0 8px;
+}
+
+.intro-def-sub {
+  color: var(--ink-2);
+}
+
+.tree-stage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 0 58px;
+  transition: none;
+}
+
+/* When focused on Page 2, smoothly fade out top connectors leading to nonexistent root */
+.tree-stage--focused .branch-children--top::before,
+.tree-stage--focused .branch-child-slot--microscope::after {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.branch-node--root {
+  border-color: rgba(95, 210, 232, 0.4);
+  color: var(--axis);
+  background: linear-gradient(180deg, rgba(95, 210, 232, 0.1), rgba(95, 210, 232, 0.02));
+}
+
+.branch-children--top {
+  --tree-gap: 30px;
+}
+
+.branch-child-slot--microscope {
+  position: relative;
+  border-radius: 12px;
+}
+
+.branch-child-slot--clickable {
+  cursor: pointer;
+}
+
+.branch-child-slot--clickable:hover .branch-node--emphasis,
+.branch-child-slot--clickable:focus-visible .branch-node--emphasis {
+  box-shadow: 0 0 0 1px rgba(255, 180, 107, 0.35), 0 16px 36px -12px rgba(255, 180, 107, 0.4);
+  transform: translateY(-1px);
+}
+
+.microscope-copy {
+  max-width: 560px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.microscope-copy-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: var(--ray);
+  margin-bottom: 10px;
+}
+
+.microscope-copy p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-1);
+  margin: 0;
+}
+
+.visual-angle-trigger {
+  background: none;
+  border: none;
+  padding: 0 1px;
+  font: inherit;
+  color: var(--ray);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 180, 107, 0.55);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s var(--ease-soft);
+}
+
+.visual-angle-trigger:hover,
+.visual-angle-trigger:focus-visible {
+  color: #ffd7a8;
+  text-decoration-color: #ffd7a8;
+}
+
+.advance-hint {
+  margin-top: 32px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+@media (max-width: 860px) {
+  .intro-scene {
+    padding: 56px 20px 130px;
+  }
+  .intro-title {
+    font-size: 30px;
+  }
+  .branch-node {
+    font-size: 12.5px;
+    padding: 7px 12px;
+    min-height: 34px;
+  }
+  .tree-stage--focused .microscope-copy p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  .branch-node {
+    font-size: 11px;
+    padding: 6px 9px;
+  }
+  .branch-child-slot {
+    padding: 0 8px;
+  }
+  .intro-def {
+    font-size: 14.5px;
+  }
+  .branch-children--top {
+    --tree-gap: 20px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .branch-children--top::before {
+    display: none;
+  }
+  .branch-children--top > .branch-child-slot {
+    padding: 0;
+  }
+  .branch-children--top > .branch-child-slot::after {
+    display: none;
+  }
+  .branch-children--top > .branch-h-line {
+    display: none;
+  }
+}

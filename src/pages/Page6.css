@@ -1,0 +1,278 @@
+.p6-scene {
+  width: 100%;
+  min-height: 100%;
+  padding: 60px 72px 120px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.p6-header {
+  max-width: 860px;
+  margin-bottom: 22px;
+}
+
+.p6-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.22;
+  margin: 10px 0 0;
+  color: var(--ink-0);
+  letter-spacing: -0.005em;
+}
+
+.p6-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 36px;
+  min-height: 0;
+  align-items: start;
+}
+
+/* Left Column: Visual + Track Controls */
+.p6-visual-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p6-visual {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: radial-gradient(ellipse 70% 60% at 50% 45%, rgba(18, 26, 38, 0.75), rgba(7, 11, 17, 0.95));
+  border: 1px solid var(--hairline);
+  box-shadow: 0 16px 40px -15px rgba(0, 0, 0, 0.6);
+}
+
+.p6-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SVG Text elements */
+.p6-base-text {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 54px;
+  fill: rgba(163, 190, 216, 0.35);
+  letter-spacing: 0.22em;
+  user-select: none;
+}
+
+.p6-magnified-text {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 54px;
+  fill: var(--ray);
+  letter-spacing: 0.22em;
+  user-select: none;
+  filter: drop-shadow(0 2px 10px rgba(255, 180, 107, 0.35));
+}
+
+.p6-svg-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  fill: var(--ink-3);
+  user-select: none;
+}
+
+.p6-svg-mag-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  fill: var(--ray);
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Controls Panel */
+.p6-controls {
+  padding: 16px 22px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.008));
+  border: 1px solid var(--hairline);
+}
+
+.p6-controls-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p6-control-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+
+
+/* Right Column: Educational Prose & Cards */
+.p6-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p6-card {
+  padding: 24px 26px;
+  border-radius: 16px;
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+}
+
+.p6-card-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.p6-card-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--ray);
+  background: rgba(255, 180, 107, 0.1);
+  border: 1px solid rgba(255, 180, 107, 0.28);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+.p6-prose {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-1);
+  margin: 0;
+}
+
+.p6-prose strong {
+  color: var(--ink-0);
+  font-weight: 600;
+}
+
+/* INTERACTION 1: "converging" ↔ "convex" interactive word */
+.p6-interactive-word {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 180, 107, 0.12);
+  border: 1px solid rgba(255, 180, 107, 0.4);
+  border-radius: 6px;
+  padding: 1px 7px;
+  color: #ffe0b8;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 180, 107, 0.65);
+  text-underline-offset: 3px;
+  cursor: pointer;
+  vertical-align: baseline;
+  transition: all 0.2s var(--ease-soft);
+  user-select: none;
+}
+
+.p6-interactive-word:hover {
+  background: rgba(255, 180, 107, 0.22);
+  border-color: rgba(255, 180, 107, 0.7);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px -3px rgba(255, 180, 107, 0.35);
+}
+
+.p6-interactive-word:active {
+  transform: translateY(0);
+}
+
+/* Fixed container prevents any surrounding layout shift */
+.p6-word-slot {
+  display: inline-block;
+  min-width: 82px;
+  text-align: center;
+}
+
+.p6-word-text {
+  display: block;
+}
+
+.p6-word-icon {
+  font-size: 13px;
+  color: var(--ray);
+  opacity: 0.75;
+  transition: transform 0.2s ease;
+}
+
+.p6-interactive-word:hover .p6-word-icon {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+
+/* Conditions Card */
+.p6-conditions-card {
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.008));
+}
+
+.p6-conditions-heading {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.p6-conditions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p6-condition-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.p6-cond-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--axis);
+  flex-shrink: 0;
+  transform: translateY(-2px);
+}
+
+.p6-cond-content strong {
+  color: var(--ink-0);
+  font-weight: 500;
+}
+
+@media (max-width: 980px) {
+  .p6-body {
+    grid-template-columns: 1fr;
+  }
+  .p6-scene {
+    padding: 44px 20px 160px;
+  }
+  .p6-heading {
+    font-size: 24px;
+  }
+}

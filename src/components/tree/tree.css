@@ -1,0 +1,89 @@
+.tree-stage {
+  display: flex;
+  justify-content: center;
+}
+
+.branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.branch-node {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--ink-0);
+  padding: 9px 18px;
+  border-radius: 9px;
+  border: 1px solid var(--hairline-strong);
+  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+  white-space: nowrap;
+}
+
+.branch-node--emphasis {
+  border-color: rgba(255, 180, 107, 0.55);
+  background: linear-gradient(180deg, rgba(255, 180, 107, 0.14), rgba(255, 180, 107, 0.04));
+  color: #ffe4c4;
+  box-shadow: 0 0 0 1px rgba(255, 180, 107, 0.12), 0 12px 30px -12px rgba(255, 180, 107, 0.25);
+}
+
+.branch-node--dim {
+  opacity: 0.62;
+}
+
+.branch-children {
+  --tree-gap: 26px;
+  display: flex;
+  position: relative;
+  padding-top: var(--tree-gap);
+}
+
+/* Vertical line from parent node down to the horizontal connector bar */
+.branch-children::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: var(--tree-gap);
+  background: var(--hairline-strong);
+  transform: translateX(-50%);
+}
+
+/* Single continuous horizontal connector bar — positioned via JS measurement */
+.branch-h-line {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  background: var(--hairline-strong);
+  pointer-events: none;
+}
+
+.branch-child-slot {
+  position: relative;
+  padding: 0 16px;
+}
+
+/* Vertical tick from horizontal bar down to each child node */
+.branch-child-slot::after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--tree-gap));
+  left: 50%;
+  width: 1px;
+  height: var(--tree-gap);
+  background: var(--hairline-strong);
+  transform: translateX(-50%);
+}
+
+/* Only child: parent's ::before already provides the vertical connector */
+.branch-child-slot:only-child::after {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .branch-children[data-depth="2"] {
+    display: none;
+  }
+}
