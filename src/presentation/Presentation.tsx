@@ -10,9 +10,10 @@ import Page7 from "../pages/Page7";
 import Page8 from "../pages/Page8";
 import Page9 from "../pages/Page9";
 import Page10 from "../pages/Page10";
+import TitleSlide from "../pages/TitleSlide";
 import "./Presentation.css";
 
-const TOTAL_PAGES = 10;
+const TOTAL_PAGES = 11;
 
 export default function Presentation() {
   const [page, setPage] = useState(1);
@@ -43,7 +44,7 @@ export default function Presentation() {
     return () => window.removeEventListener("keydown", onKey);
   }, [onNext, onPrev]);
 
-  const introKey = page <= 2 ? "intro" : `p${page}`;
+  const introKey = page >= 2 && page <= 3 ? "intro" : `p${page}`;
 
   return (
     <div className="stage">
@@ -60,21 +61,22 @@ export default function Presentation() {
           exit="exit"
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          {page <= 2 && (
+          {page === 1 && <TitleSlide />}
+          {page >= 2 && page <= 3 && (
             <MicroscopeIntroScene
-              page={page as 1 | 2}
-              onAdvance={() => goto(2)}
-              onGoVisualAngle={() => goto(5)}
+              page={(page - 1) as 1 | 2}
+              onAdvance={() => goto(3)}
+              onGoVisualAngle={() => goto(6)}
             />
           )}
-          {page === 3 && <Page3 />}
-          {page === 4 && <Page4 onBack={() => goto(2)} />}
-          {page === 5 && <Page5 />}
-          {page === 6 && <Page6 />}
-          {page === 7 && <Page7 />}
-          {page === 8 && <Page8 />}
-          {page === 9 && <Page9 />}
-          {page === 10 && <Page10 />}
+          {page === 4 && <Page3 />}
+          {page === 5 && <Page4 onBack={() => goto(3)} />}
+          {page === 6 && <Page5 />}
+          {page === 7 && <Page6 />}
+          {page === 8 && <Page7 />}
+          {page === 9 && <Page8 />}
+          {page === 10 && <Page9 />}
+          {page === 11 && <Page10 />}
         </motion.div>
       </AnimatePresence>
 

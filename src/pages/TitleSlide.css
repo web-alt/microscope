@@ -1,0 +1,225 @@
+/* ── TitleSlide.css: Cinematic & Minimalist Title Page ── */
+
+.title-slide {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px 24px 90px;
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(14, 22, 34, 0.7), transparent 80%),
+    var(--void);
+}
+
+/* ── Ambient Optical Glass & Ray Caustics ── */
+.title-slide__ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform;
+}
+
+.title-slide__bloom {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.title-slide__bloom--amber {
+  width: 620px;
+  height: 620px;
+  left: calc(50% - 310px);
+  top: calc(50% - 310px);
+  background: radial-gradient(circle, rgba(255, 180, 107, 0.06) 0%, transparent 68%);
+  filter: blur(50px);
+}
+
+.title-slide__bloom--cyan {
+  width: 780px;
+  height: 480px;
+  left: calc(50% - 390px);
+  top: calc(50% - 240px);
+  background: radial-gradient(ellipse, rgba(95, 210, 232, 0.05) 0%, transparent 72%);
+  filter: blur(60px);
+}
+
+.title-slide__ambient-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ── Main Typographic Container ── */
+.title-slide__container {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 840px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 0;
+}
+
+/* ── Eyebrow Badge ── */
+.title-slide__eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 15px;
+  border-radius: 999px;
+  background: rgba(14, 21, 32, 0.6);
+  border: 1px solid rgba(163, 190, 216, 0.16);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  margin-bottom: 26px;
+}
+
+.title-slide__eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--axis);
+  box-shadow: 0 0 8px var(--axis);
+  animation: dotGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes dotGlow {
+  0% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 12px var(--axis); }
+}
+
+.title-slide__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+/* ── Main Heading ── */
+.title-slide__title {
+  margin: 0;
+  font-family: "Instrument Serif", var(--font-display);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-slide__heading-top {
+  font-size: clamp(34px, 5.4vw, 58px);
+  font-weight: 400;
+  color: var(--ink-1);
+  opacity: 0.92;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+}
+
+.title-slide__heading-main {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(62px, 10.2vw, 110px);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  background: linear-gradient(135deg, #ffffff 15%, #ffe6cc 45%, var(--ray) 80%, #f49b42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 32px rgba(255, 180, 107, 0.38));
+}
+
+/* ── Authors Attribution (Positioned Right with Leading Rule) ── */
+.title-slide__authors-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-top: 38px;
+  padding-right: 4px;
+}
+
+.title-slide__authors-rule {
+  flex: 1;
+  max-width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 180, 107, 0.45));
+}
+
+.title-slide__authors {
+  margin: 0;
+  font-size: clamp(17px, 2.3vw, 22px);
+  color: var(--ink-0);
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title-slide__dash {
+  margin-right: 10px;
+  color: var(--ray);
+  opacity: 0.85;
+  font-weight: 300;
+}
+
+.title-slide__author {
+  font-weight: 500;
+  color: var(--ink-0);
+  transition: color 0.2s ease;
+}
+
+.title-slide__amp {
+  margin: 0 10px;
+  font-family: "Instrument Serif", var(--font-display);
+  font-style: italic;
+  color: var(--ray);
+  font-size: 1.25em;
+}
+
+/* ── Mobile Responsive ── */
+@media (max-width: 680px) {
+  .title-slide {
+    padding-top: 40px;
+    padding-bottom: 85px;
+  }
+
+  .title-slide__eyebrow-wrap {
+    margin-bottom: 18px;
+  }
+
+  .title-slide__heading-top {
+    font-size: 26px;
+  }
+
+  .title-slide__heading-main {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .title-slide__authors-wrap {
+    margin-top: 26px;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .title-slide__authors-rule {
+    max-width: 60px;
+  }
+
+  .title-slide__authors {
+    font-size: 15.5px;
+  }
+}

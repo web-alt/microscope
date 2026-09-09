@@ -10,6 +10,7 @@ interface NavBarProps {
 }
 
 const LABELS = [
+  "Optical Instruments: Simple Microscope",
   "Optical Instruments",
   "Simple Microscope",
   "Magnifying by Proximity",
