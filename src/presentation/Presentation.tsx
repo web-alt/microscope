@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import NavBar from "../components/NavBar";
+import LaserPenCanvas from "../components/LaserPen";
 import MicroscopeIntroScene from "../pages/MicroscopeIntroScene";
 import Page3 from "../pages/Page3";
 import Page4 from "../pages/Page4";
@@ -19,6 +20,28 @@ export default function Presentation() {
   const [page, setPage] = useState(1);
   const [direction, setDirection] = useState(1);
   const lastPage = useRef(1);
+
+  /* ── Laser pen state ─────────────────────────────────────── */
+  const [isPenEnabled, setIsPenEnabled] = useState(false);
+  const [showCanvas, setShowCanvas] = useState(false);
+
+  const togglePen = useCallback(() => {
+    setIsPenEnabled((prev) => {
+      const next = !prev;
+      if (next) setShowCanvas(true); // mount canvas
+      // When turning off, canvas stays so strokes can fade
+      return next;
+    });
+  }, []);
+
+  const handleAllFaded = useCallback(() => {
+    // All strokes have faded and pen is off — unmount canvas
+    if (!isPenEnabled) {
+      setShowCanvas(false);
+    }
+  }, [isPenEnabled]);
+
+  /* ── Page navigation ─────────────────────────────────────── */
 
   const goto = useCallback((next: number) => {
     if (next < 1 || next > TOTAL_PAGES || next === lastPage.current) return;
@@ -80,7 +103,20 @@ export default function Presentation() {
         </motion.div>
       </AnimatePresence>
 
-      <NavBar page={page} total={TOTAL_PAGES} onGoto={goto} onPrev={onPrev} onNext={onNext} />
+      {/* Laser pen canvas overlay (z-index 35, below navbar 40) */}
+      {showCanvas && (
+        <LaserPenCanvas enabled={isPenEnabled} onAllFaded={handleAllFaded} />
+      )}
+
+      <NavBar
+        page={page}
+        total={TOTAL_PAGES}
+        onGoto={goto}
+        onPrev={onPrev}
+        onNext={onNext}
+        isPenEnabled={isPenEnabled}
+        onTogglePen={togglePen}
+      />
     </div>
   );
 }
@@ -99,3 +135,4 @@ const sceneVariants = {
     x: dir > 0 ? -36 : 36,
   }),
 };
+

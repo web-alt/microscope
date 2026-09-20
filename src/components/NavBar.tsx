@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { PenOnIcon, PenOffIcon } from "./LaserPen";
 import "./NavBar.css";
+import "./LaserPen.css";
 
 interface NavBarProps {
   page: number;
@@ -7,6 +9,8 @@ interface NavBarProps {
   onGoto: (page: number) => void;
   onPrev: () => void;
   onNext: () => void;
+  isPenEnabled: boolean;
+  onTogglePen: () => void;
 }
 
 const LABELS = [
@@ -23,7 +27,7 @@ const LABELS = [
   "Image at Infinity (Normal Adjustment)",
 ];
 
-export default function NavBar({ page, total, onGoto, onPrev, onNext }: NavBarProps) {
+export default function NavBar({ page, total, onGoto, onPrev, onNext, isPenEnabled, onTogglePen }: NavBarProps) {
   return (
     <div className="navbar">
       <button
@@ -67,6 +71,19 @@ export default function NavBar({ page, total, onGoto, onPrev, onNext }: NavBarPr
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
+      </button>
+
+      {/* ── Pen toggle ─────────────────────────────── */}
+      <span className="navbar-pen-sep" aria-hidden="true" />
+
+      <button
+        className={`navbar-pen-btn focus-visible-ring${isPenEnabled ? " navbar-pen-btn--active" : ""}`}
+        onClick={onTogglePen}
+        aria-label={isPenEnabled ? "Disable annotation pen" : "Enable annotation pen"}
+        aria-pressed={isPenEnabled}
+        title={isPenEnabled ? "Disable Pen" : "Enable Pen"}
+      >
+        {isPenEnabled ? <PenOffIcon /> : <PenOnIcon />}
       </button>
     </div>
   );

@@ -1,0 +1,62 @@
+/* ── Laser-Pen Canvas Overlay ────────────────────────── */
+
+.laser-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 35;              /* below navbar (40), above all page content */
+  pointer-events: auto;
+  cursor: crosshair;
+  touch-action: none;        /* prevent scroll/zoom while drawing */
+}
+
+/* We keep canvas even after disabling pen so fading strokes can finish.
+   This "fading-out" state removes interactivity but keeps the element. */
+.laser-canvas--fading {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ── Pen Toggle Buttons (inside NavBar) ─────────────── */
+
+.navbar-pen-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--hairline-strong);
+  flex-shrink: 0;
+}
+
+.navbar-pen-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--ink-1);
+  cursor: pointer;
+  transition: color 0.2s var(--ease-soft),
+              background 0.2s var(--ease-soft),
+              box-shadow 0.25s var(--ease-soft);
+  position: relative;
+}
+
+.navbar-pen-btn:hover {
+  color: var(--ink-0);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Active (pen-on) glow state */
+.navbar-pen-btn--active {
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.12);
+  box-shadow: 0 0 10px rgba(255, 59, 48, 0.35);
+}
+
+.navbar-pen-btn--active:hover {
+  color: #ff6b5e;
+  background: rgba(255, 59, 48, 0.18);
+}
