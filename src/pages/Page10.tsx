@@ -42,10 +42,6 @@ const CASE_TWO_STEPS: DerivationStep[] = [
     content: <><div className="p10-step-formula">m = <span className="p10-frac"><span className="p10-frac-top">D</span><span className="p10-frac-bottom">u</span></span> ⇒ <span className="p10-result-m-tag">m = <span className="p10-frac"><span className="p10-frac-top">D</span><span className="p10-frac-bottom">f</span></span></span></div><span className="p10-step-note">Minimum magnification for a relaxed eye</span></>,
   },
   {
-    title: "Relate linear and angular magnification",
-    content: <><div className="p10-step-formula"><span className="p10-frac"><span className="p10-frac-top">v</span><span className="p10-frac-bottom">u</span></span> = <span className="p10-frac"><span className="p10-frac-top">−D</span><span className="p10-frac-bottom">−u</span></span> = <span className="p10-frac"><span className="p10-frac-top">D</span><span className="p10-frac-bottom">u</span></span></div><div className="p10-equivalence-box">Linear magnification = Angular magnification</div></>,
-  },
-  {
     title: "Key takeaway",
     content: <div className="p10-limit-box"><div className="p10-limit-header"><span className="p10-limit-badge">Practical limit</span></div><p className="p10-limit-text">A simple microscope has a limited maximum magnification, m ≤ 9, for realistic focal lengths.</p></div>,
   },
