@@ -1,20 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import NavBar from "../components/NavBar";
-import LaserPenCanvas from "../components/LaserPen";
-import MicroscopeIntroScene from "../pages/MicroscopeIntroScene";
-import Page3 from "../pages/Page3";
-import Page4 from "../pages/Page4";
-import Page5 from "../pages/Page5";
-import Page6 from "../pages/Page6";
-import Page7 from "../pages/Page7";
-import Page8 from "../pages/Page8";
-import Page9 from "../pages/Page9";
-import Page10 from "../pages/Page10";
-import TitleSlide from "../pages/TitleSlide";
-import "./Presentation.css";
+import LaserPenCanvas, { NavBar } from "../components/components";
+import { MicroscopeIntroScene, Page3, Page4, Page5, Page6, Page7, Page8, Page9, Page10, Page11, Page12, TitleSlide } from "../pages/pages";
 
-const TOTAL_PAGES = 11;
+const TOTAL_PAGES = 13;
 
 export default function Presentation() {
   const [page, setPage] = useState(1);
@@ -100,6 +89,8 @@ export default function Presentation() {
           {page === 9 && <Page8 />}
           {page === 10 && <Page9 />}
           {page === 11 && <Page10 />}
+          {page === 12 && <Page11 />}
+          {page === 13 && <Page12 />}
         </motion.div>
       </AnimatePresence>
 
